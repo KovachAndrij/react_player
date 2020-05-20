@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
           <h1 > Reactive Player </h1>
       </header>
-        <MusicList  name="Mark"/>
+        <MusicList/>
     </div>
   );
 }

@@ -1,16 +1,16 @@
 import React from 'react';
 import './SongsTable.css';
-import Music from './Music';
+import MusicButtons from './MusicButtons';
 
 class SongsTable extends React.Component{
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             songs: [
-                { id: 1, name: 'Wasif', age: 21, email: 'wasif@email.com' },
-                { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
-                { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
-                { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
+                { name: 'Wasif'},
+                { name: 'Ali'},
+                { name: 'Saad'},
+                { name: 'Asad'}
             ],
             colomnNames: [ 'Song Name', 'Actions']
         }
@@ -18,21 +18,18 @@ class SongsTable extends React.Component{
 
     renderTableData() {
         return this.state.songs.map((song, index) => {
-            const { id, name, age, email } = song
+            const {  name } = song;
             return (
-                <tr key={id}>
-                    <td>{id}</td>
+                <tr key={name}>
                     <td>{name}</td>
-                    <td>{age}</td>
-                    <td>{email}</td>
+                    <td><MusicButtons name={name}/> </td>
                 </tr>
             )
         })
     }
 
     renderTableHeader() {
-        let header = this.state.colomnNames
-        console.log(header);
+        let header = this.state.colomnNames;
         return header.map((colomnName, index) => {
             return <th key={index}>{colomnName.toUpperCase()}</th>
         })
@@ -47,7 +44,6 @@ class SongsTable extends React.Component{
                     {this.renderTableData()}
                     </tbody>
                 </table>
-                <Music/>
             </div>
         )
     }
