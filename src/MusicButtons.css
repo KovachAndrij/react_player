@@ -1,0 +1,26 @@
+.rhap_container {
+    height: 100px;
+}
+.musicButtonsDiv{
+    display: flex;
+}
+#deleteBtn{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+
+}
+.deleteBtnWrapper{
+    justify-content: center;
+    display: flex;
+    width: 15%;
+}
+.playerWrapper{
+    width: 85%;
+    justify-content: center;
+    display: flex;
+}

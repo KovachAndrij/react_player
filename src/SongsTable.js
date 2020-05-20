@@ -7,22 +7,25 @@ class SongsTable extends React.Component{
         super(props);
         this.state = {
             songs: [
-                { name: 'Wasif'},
-                { name: 'Ali'},
-                { name: 'Saad'},
-                { name: 'Asad'}
+                {  name: 'Sample Song',
+                    songUrl:'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3'
+                },
             ],
-            colomnNames: [ 'Song Name', 'Actions']
+            colomnNames: [ 'Song Name', 'Actions'],
         }
     }
+    deleteSongHandler = (deleteSongName) => {
+        this.setState({
+            songs: this.state.songs.filter(item => item.name !== deleteSongName)
+        })
+    };
 
     renderTableData() {
         return this.state.songs.map((song, index) => {
-            const {  name } = song;
             return (
-                <tr key={name}>
-                    <td>{name}</td>
-                    <td><MusicButtons name={name}/> </td>
+                <tr key={song.name}>
+                    <td>{song.name}</td>
+                    <td><MusicButtons name={song.name}  songUrl={song.songUrl} deleteSongHandler={this.deleteSongHandler} /> </td>
                 </tr>
             )
         })
